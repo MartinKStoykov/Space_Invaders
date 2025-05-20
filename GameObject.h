@@ -1,6 +1,8 @@
 #ifndef GAMEOBJECT_HPP
 #define GAMEOBJECT_HPP
 
+#include <vector>
+
 #include "Visualization.h"
 
 class GameObject {
@@ -34,6 +36,12 @@ public:
     virtual void render();
 
     virtual ~GameObject();
+
+    virtual int getPoints();
+
+    virtual void shoot(vector<GameObject*>& bullets);
+
+    virtual int getDirection();
 };
 
 #endif // GAMEOBJECT_HPP

@@ -17,6 +17,8 @@ public:
 
     void update();
     void render();
+    int getDirection();
+
 
 };
 

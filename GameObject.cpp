@@ -1,6 +1,8 @@
 #include "GameObject.h"
 
 #include <iostream>
+#include <vector>
+
 #include "Visualization.h"
 
 GameObject::GameObject() : x(0), y(0), symbol('X'), color(WHITE) {}
@@ -74,4 +76,15 @@ void GameObject::render() {
 }
 
 GameObject::~GameObject() {}
+
+int GameObject::getPoints() {
+    return 0;
+}
+
+int GameObject::getDirection() {
+    return 0;
+}
+
+void GameObject::shoot(vector<GameObject*>& bullets) {
+}
 
