@@ -157,7 +157,7 @@ void Game::checkCollisions(map<GameObject*, map<int, int>> loc) {
                         collision = true;
                         break;
                     }
-                    if (typeid(*v.first) == typeid(bullet) && v.first->getDirection() != bullet->getDirection()) {
+                    if (typeid(*v.first) == typeid(Bullet) && bullet->getDirection() != v.first->getDirection()) {
                         bulletToRemove.push_back(bullet);
                         bulletToRemove.push_back(v.first);
                         collision = true;
@@ -202,25 +202,25 @@ void Game::checkCollisions(map<GameObject*, map<int, int>> loc) {
     }
 }
 
-void Game::render(map<GameObject*, map<int, int>> enemyLocations, map<GameObject*, map<int, int>> enemyBullets) {
+void Game::render(map<GameObject*, map<int, int>> locations, map<GameObject*, map<int, int>> enemyBullets) {
     system("cls");
-    enemyLocations.clear();
+    locations.clear();
     enemyBullets.clear();
 
     for (GameObject* enemy : enemies) {
         enemy->render();
-        enemyLocations[enemy] = {{enemy->getX(), enemy->getY()}};
+        locations[enemy] = {{enemy->getX(), enemy->getY()}};
     }
 
 
     for (GameObject* bullet : this->getBullets()) {
         if (bullet != nullptr) {
-            enemyLocations[bullet] = {{bullet->getX(), bullet->getY()}};
+            locations[bullet] = {{bullet->getX(), bullet->getY()}};
             bullet->render();
         }
     }
 
-    checkCollisions(enemyLocations);
+    checkCollisions(locations);
 
 
     player.render();

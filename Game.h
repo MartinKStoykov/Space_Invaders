@@ -30,7 +30,7 @@ public:
     void input();
     void update();
     void checkCollisions(map<GameObject*, map<int, int>> loc);
-    void render(map<GameObject*, map<int, int>> enemyLocations, map<GameObject*, map<int, int>> enemyBullets);
+    void render(map<GameObject*, map<int, int>> locations, map<GameObject*, map<int, int>> enemyBullets);
     void run();
     std::vector<GameObject*>& getBullets();
 };
